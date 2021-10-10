@@ -4,9 +4,9 @@ const finnhub = require('finnhub');
 export default function GameStop() {
   const [price, setPrice] = useState(0);
 
-  const socket = new WebSocket(
-    `wss://ws.finnhub.io?token=` + process.env.REACT_APP_FINNHUB_API_KEY
-  );
+  // const socket = new WebSocket(
+  //   `wss://ws.finnhub.io?token=` + process.env.REACT_APP_FINNHUB_API_KEY
+  // );
 
   // // Connection opened -> Subscribe
   // socket.addEventListener('open', function (event) {

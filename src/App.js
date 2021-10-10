@@ -3,7 +3,7 @@ import Moaas from './components/moaas';
 
 function App() {
   return (
-    <div class="bg-black h-screen w-screen pt-20 lg:pt-30">
+    <div className="bg-black h-screen w-screen pt-20 lg:pt-30">
       <GameStop />
       <Moaas  />
     </div>

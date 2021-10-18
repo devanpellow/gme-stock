@@ -3,12 +3,12 @@ import axios from 'axios';
 
 export default function GameStop() {
   const [price, setPrice] = useState(0);
-  console.log('TO THE MOON');
   useEffect(() => {
+    console.log('TO THE MOON');
     axios
       .get('http://localhost:5000/gme_quote')
       .then((response) => {
-        let price = response.data.toFixed(2)
+        let price = response.data.toFixed(2);
         setPrice(price);
       })
       .catch((err) => console.log(err));

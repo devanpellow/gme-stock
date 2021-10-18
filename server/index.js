@@ -1,7 +1,9 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const axios = require('axios').default;
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
 app.use(express.json({ limit: '1mb' }));
 
@@ -13,7 +15,7 @@ const options = {
   params: { symbol: 'GME', format: 'json', outputsize: '30' },
   headers: {
     'x-rapidapi-host': 'twelve-data1.p.rapidapi.com',
-    'x-rapidapi-key': '69ac91e6ccmsh44708557c44e289p183c48jsn56aebd7229be',
+    'x-rapidapi-key': process.env.TWELVE_API_KEY,
   },
 };
 

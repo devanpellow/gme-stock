@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default function GameStop() {
   const [price, setPrice] = useState(0);
-
+  console.log('TO THE MOON');
   useEffect(() => {
     axios
       .get('http://localhost:5000/gme_quote')

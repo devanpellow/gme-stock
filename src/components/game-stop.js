@@ -1,18 +1,30 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const options = {
+  method: 'GET',
+  url: 'https://realstonks.p.rapidapi.com/GME',
+  headers: {
+    'x-rapidapi-host': 'realstonks.p.rapidapi.com',
+    'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+  },
+};
+
 export default function GameStop() {
   const [price, setPrice] = useState(0);
   useEffect(() => {
     console.log('TO THE MOON');
     axios
-      .get('http://localhost:5000/gme_quote')
+      .request(options)
       .then((response) => {
-        let price = response.data.toFixed(2);
+        console.log(JSON.parse(response.data));
+        let price = JSON.parse(response.data).price
         setPrice(price);
       })
-      .catch((err) => console.log(err));
-  }, []);
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, [price]);
 
   return (
     <div className="flex flex-col items-center">
@@ -20,6 +32,7 @@ export default function GameStop() {
       <h1 className="text-white text-7xl md:text-8xl mt-10 md:mt-20">
         ${price}
       </h1>
+      <h4 className="text-gray-500">USD</h4>
     </div>
   );
 }
